@@ -20,26 +20,26 @@ namespace PerceptronNN
         static int[] CollectionImagesArray = new int[16];
         static List<int> CollectionImagesList = new List<int>();
         //int[] Image = new int[4];
-        static double weight = 1;
+        static double weight = 0.75;
 
         //0 = white, 1 = black pixel
         //probably should have flipped values and meaning
-        static int[] Image_1 = { 0, 0, 0, 0 }; //bright
-        static int[] Image_2 = { 0, 1, 0, 0 }; //bright
-        static int[] Image_3 = { 0, 1, 1, 0 }; //bright
-        static int[] Image_4 = { 0, 1, 1, 1 }; //dark
-        static int[] Image_5 = { 1, 1, 1, 1 }; //dark
-        static int[] Image_6 = { 1, 0, 1, 0 };//bright
-        static int[] Image_7 = { 1, 1, 0, 1 }; //dark
-        static int[] Image_8 = { 1, 1, 1, 1 };
-        static int[] Image_9 = { 1, 0, 0, 1 };
-        static int[] Image_10 = { 1, 1, 1, 0 };
-        static int[] Image_11 = { 0, 0, 0, 1 };
-        static int[] Image_12 = { 1, 1, 1, 1 };
-        static int[] Image_13 = { 1, 0, 1, 1 };
-        static int[] Image_14 = { 1, 0, 1, 1 };
-        static int[] Image_15 = { 1, 1, 0, 1 };
-        static int[] Image_16 = { 0, 0, 0, 1 };
+        static double[] Image_1 = { 0, 0, 0, 0 }; //bright
+        static double[] Image_2 = { 0, 1, 0, 0 }; //bright
+        static double[] Image_3 = { 0, 1, 1, 0 }; //bright
+        static double[] Image_4 = { 0, 1, 1, 1 }; //dark
+        static double[] Image_5 = { 1, 1, 1, 1 }; //dark
+        static double[] Image_6 = { 1, 0, 1, 0 };//bright
+        static double[] Image_7 = { 1, 1, 0, 1 }; //dark
+        static double[] Image_8 = { 1, 1, 1, 1 };
+        static double[] Image_9 = { 1, 0, 0, 1 };
+        static double[] Image_10 = { 1, 1, 1, 0 };
+        static double[] Image_11 = { 0, 0, 0, 1 };
+        static double[] Image_12 = { 1, 1, 1, 1 };
+        static double[] Image_13 = { 1, 0, 1, 1 };
+        static double[] Image_14 = { 1, 0, 1, 1 };
+        static double[] Image_15 = { 1, 1, 0, 1 };
+        static double[] Image_16 = { 0, 0, 0, 1 };
 
         static void Main(string[] args)
         {
@@ -82,8 +82,8 @@ namespace PerceptronNN
             
         }
 
-        static void GenerateImages()
-        {
+        //static void GenerateImages()
+        //{
             //Random random = new Random();
             //for (int i = 0; i<4; i++)
             //{
@@ -93,7 +93,7 @@ namespace PerceptronNN
 
 
 
-        }
+        //}
 
         //int CalculateImagesList()
         //{
@@ -105,7 +105,7 @@ namespace PerceptronNN
 
         //}
 
-        static void CalculateImagePixels(int[] image)
+        static void CalculateImagePixels(double[] image) //previously this method took int[]
         {
             //basically this function counts up number of black pixels
             double sum = 0.0;
@@ -116,15 +116,27 @@ namespace PerceptronNN
             }
             Console.WriteLine("the sum is " + sum);
 
-            if (sum == 0 || sum == 1 || sum == 2)
+             //this works with int values
+            //if (sum == 0 || sum == 1 || sum == 2)
+            //{
+            //    Console.WriteLine("This image is BRIGHT\n");
+            //}
+
+            //if (sum == 3 || sum ==4)
+            //{
+            //    Console.WriteLine("This image is DARK\n");
+            //}
+
+            if(sum <=2 )
             {
                 Console.WriteLine("This image is BRIGHT\n");
             }
 
-            if (sum == 3 || sum ==4)
+            if(sum >2 && sum <=5)
             {
                 Console.WriteLine("This image is DARK\n");
             }
+
             //else
             //{
             //    Console.WriteLine("Can't figure it out...\n");
@@ -151,3 +163,4 @@ namespace PerceptronNN
         }
     }
 }
+
